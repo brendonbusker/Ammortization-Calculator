@@ -24,6 +24,8 @@ def calc(beg_balance, rate, payment, year):
     print('YEAR', '|BEGINNING BALANCE', '|TOTAL PAYMENT', '|INTEREST PAYMENT', '|PRINCIPAL PAYMENT', '|ENDING BALANCE', sep = '')
     print('-' * 86)
 
+    total_interest = 0
+
     for i in range(1, year+1):
         interest = beg_balance * rate
         principal = payment - interest
@@ -33,6 +35,10 @@ def calc(beg_balance, rate, payment, year):
                f'{round(interest,2):<16}', f'{round(principal,2):<17}', round(end_balance,2))
 
         beg_balance = end_balance
+        total_interest += interest
+    
+    print()
+    print(f"Total Interest: {round(total_interest,2)}")
 
 # Runs Program
 main()

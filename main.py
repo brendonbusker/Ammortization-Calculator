@@ -8,13 +8,21 @@ def main():
     print('Welcome To The Ammortization Calculator')
     print('Please Enter The Specified Values Below')
     print('----------------------------------------')
+
+    # loop bool
+    loop = True
     
     # Input values
-    beg_balance = float(input('Enter Beginning Balance Amount: '))
-    rate = float(input('Enter Rate (MUST BE DECIMAL FORM): '))
-    payment = float(input('Enter Payment (GET FROM TVM CALC): '))
-    year = int(input('Enter Years: '))
-    
+    while loop:
+        try:
+            beg_balance = float(input('Enter Beginning Balance Amount: '))
+            rate = float(input('Enter Rate (MUST BE DECIMAL FORM): '))
+            payment = float(input('Enter Payment (GET FROM TVM CALC): '))
+            year = int(input('Enter Years: '))
+            loop = False
+        
+        except:
+            print('You entered something wrong. Please start over.\n')
 
     # Runs the calculator
     calc(beg_balance, rate, payment, year)
